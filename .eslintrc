@@ -1,0 +1,44 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jsx-a11y/label-has-associated-control": [ "off", {
+      "required": {
+        "some": [ "nesting", "id"  ]
+      }
+    }],
+    "jsx-a11y/label-has-for": [ "off", {
+      "required": {
+        "some": [ "nesting", "id"  ]
+      }
+    }],
+    "arrow-parens": [1],
+    "no-console": [0],
+    "react/prop-types": [0],
+    "no-undef": [0],
+    "no-unused-expressions": [2, { "allowShortCircuit": true, "allowTernary": true }],
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "comma-dangle": [0],
+    "no-unused-vars": [1],
+    "no-trailing-spaces": "off",
+    "max-len": "off",
+    "spaced-comment": "off",
+    "semi": "off",
+    "prefer-default-export": "off",
+    "no-return-await": [0],
+    "no-named-as-default-member": "off",
+    "dot-notation": "off",
+    "no-nested-ternary": "off",
+    "prefer-destructuring": "warn",
+    "object-shorthand": "warn",
+    "object-curly-newline": "off",
+    "implicit-arrow-linebreak": "warn",
+    "no-case-declarations": "warn",
+    "no-param-reassign": "off",
+    "consistent-return": "off",
+    "one-var-declaration-per-line": "off",
+    "one-var": "off"
+  }
+}
