@@ -83,7 +83,7 @@ const MealPanel = (props) => {
         <Col span={2}><div>חפש פריט</div></Col>
         <Col span={2}>
           <Select
-            style={{ width: '12em' }}
+            style={{ width: '18em' }}
             placeholder="חפש..."
             dropdownStyle={{ borderRadius: '15px', margin: '5px' }}
             showArrow="false"
