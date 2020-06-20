@@ -42,9 +42,22 @@ const CompoundsDist = ({ size, data, legend, total }) => {
     },
   }
 
+  const generateWidth = () => {
+    if (screens.xs) {
+      if (size === 'small') return 250
+      if (size === 'medium') return 180
+      return 300
+    } else {
+      if (size === 'small') return 250
+      if (size === 'medium') return 300
+      return 450
+    }
+
+  }
+
   return (
-    <div className="donut" style={{ paddingRight: '5em' }}>
-      <Chart options={options} series={compounds.map((c) => Number(data[c]))} type="donut" width={size === 'small' ? 250 : (size === 'medium' ? 250 : 400)} />
+    <div className="donut" style={{ paddingRight: screens.xs ? '0px' : '5em' }}>
+      <Chart options={options} series={compounds.map((c) => Number(data[c]))} type="donut" width={generateWidth()} />
     </div>
   )
 }
