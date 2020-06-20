@@ -6,7 +6,7 @@
 [build]
   base    = ""
   publish = "dist"
-  command = "REACT_APP_STAGE=dev npm run build"
+  command = "REACT_APP_STAGE=prod npm run build"
 
 # Production context: All deploys to the main
 # repository branch will inherit these settings.

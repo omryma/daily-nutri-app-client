@@ -24,7 +24,7 @@ const prod = {
   }
 }
 
-const config = process.env.REACT_APP_STAGE === 'prod' ? prod : dev;
+const config = process.env.REACT_APP_STAGE === 'dev' ? dev : prod;
 
 export default {
   social: { FB: '589920791875534' },
