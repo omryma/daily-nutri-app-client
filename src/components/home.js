@@ -30,8 +30,8 @@ const Home = () => {
     <>
       <Spin spinning={isLoading}>
         <Row justify="center" align="top" style={{ direction: 'rtl' }}>
-          <Col flex={1} order={2}><ChartContainer /></Col>
-          <Col flex={2} order={1}><MenuContainer /></Col>
+          <Col flex={2} order={2}><ChartContainer /></Col>
+          <Col flex={5} order={1}><MenuContainer /></Col>
         </Row>
       </Spin>
       <Modal
