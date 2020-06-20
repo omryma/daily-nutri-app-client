@@ -58,6 +58,7 @@ const MenuContainer = () => {
   }
 
   useEffect(() => {
+    console.log(menuDates, date)
     if (menuDates.includes(date)) dispatch(fetchMenuByDate(date))
   }, [])
 

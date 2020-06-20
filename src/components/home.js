@@ -17,8 +17,9 @@ const Home = () => {
   const [modalVisible, setModal] = useState(false)
 
   useEffect(() => {
+    console.log(isAuthenticated)
     if (isAuthenticated) dispatch(fetchMenuDates())
-  }, [])
+  }, [isAuthenticated])
 
   useEffect(() => {
     setTimeout(() => {

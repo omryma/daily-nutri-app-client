@@ -5,6 +5,7 @@ import { Button } from 'antd';
 import { userDetailsSelector, userIsAuthenticating } from '../slices/userDetails';
 import onError from '../utils/onError';
 import LoaderButton from './loaderButton';
+import { loginError } from '../utils/utilitiesFuncs';
 
 const waitForInit = () => new Promise((res, rej) => {
   const hasFbLoaded = () => {
@@ -49,7 +50,7 @@ const FacebookButton = (props) => {
       props.onLogin(response);
     } catch (e) {
       dispatch(userIsAuthenticating(false))
-      onError(e);
+      loginError();
     }
   }
 

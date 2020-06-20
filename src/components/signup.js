@@ -161,7 +161,7 @@ const SignUp = (props) => {
                   הירשם
                 </Button>
               </Form.Item>
-              <Divider><h2>או</h2></Divider>
+              <h2>או</h2>
               <FacebookButton onLogin={() => handleSuccessfulSign()} />
             </Form>
           </Row>
