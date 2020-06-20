@@ -32,7 +32,7 @@ const CompoundsDist = ({ small, data, legend, total }) => {
               showAlways: total,
               label: `${data.calories} קלוריות`,
               color: 'black',
-              fontSize: screens.lg ? '20px' : '10px',
+              fontSize: screens.lg ? '16px' : '10px',
               fontFamily: 'Varela Round, sans-serif',
               formatter: () => ''
             }

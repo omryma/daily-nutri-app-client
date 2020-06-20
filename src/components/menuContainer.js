@@ -8,7 +8,7 @@ import Tabs from 'antd/lib/tabs';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import { fetchMenuDates, userDetailsSelector, userHasAuthenticated } from '../slices/userDetails';
 import MealPanel from './mealPanel';
-import { meals, mealsDict, error } from '../utils/utilitiesFuncs';
+import { meals, mealsDict, error, localStorageEmpty } from '../utils/utilitiesFuncs';
 import { asyncActionFulfilled, asyncActionPending, changeDate, fetchMenuByDate, menuSelector } from '../slices/menu';
 import { StyledTabs, StyledTabsPane } from '../styles/styledTabs';
 import HeaderContainer from './headerContainer';
@@ -51,16 +51,14 @@ const MenuContainer = () => {
   const { menuDates } = useSelector(userDetailsSelector)
 
   const handleDateChange = (newDate) => {
-    console.log('yo')
     menuDates.includes(newDate)
       ? dispatch(fetchMenuByDate(newDate))
       : dispatch(changeDate({ date: newDate }))
   }
 
   useEffect(() => {
-    console.log(menuDates, date)
-    if (menuDates.includes(date)) dispatch(fetchMenuByDate(date))
-  }, [])
+    if (menuDates.includes(date) && localStorageEmpty()) dispatch(fetchMenuByDate(date))
+  }, [menuDates])
 
   const screens = useBreakpoint()
 

@@ -165,8 +165,9 @@ const SignUp = (props) => {
               <FacebookButton onLogin={() => handleSuccessfulSign()} />
             </Form>
           </Row>
-          <Row>
-            <h3>כבר רשום? </h3>
+          <br />
+          <Row justify="center" align="middle">
+            <h4 style={{ margin: '0px' }}>כבר רשום? &nbsp;</h4>
             <Link to="/#login">התחבר</Link>
           </Row>
         </>

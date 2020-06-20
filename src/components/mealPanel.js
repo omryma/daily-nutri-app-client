@@ -122,7 +122,7 @@ const MealPanel = (props) => {
               optionLabelProp="label"
               style={{ width: '100%' }}
               onChange={(label, option) => setSelectedUnits({ unitName: option.title.unitName, amount: option.title.amount, selectedAmount: selectedUnits.selectedAmount === 100 ? 1 : selectedUnits.selectedAmount })}
-              dropdownMatchSelectWidth
+              dropdownMatchSelectWidth={200}
               showArrow
             >
               {[defaultUnit, ...(currentReqFood.units || [])].map((unit) => <Option key={unit.unitName} value={unit.unitName === 'גרם' ? 'גרם' : `${unit.unitName} - ${unit.amount} גרם `} title={unit} />)}
