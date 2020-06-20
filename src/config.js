@@ -14,7 +14,7 @@ const dev = {
 const prod = {
   apiGateway: {
     REGION: 'us-east-1',
-    URL: 'https://api.mydailynutrition.net/dev'
+    URL: 'https://api.mydailynutrition.net/prod'
   },
   cognito: {
     REGION: 'us-east-1',

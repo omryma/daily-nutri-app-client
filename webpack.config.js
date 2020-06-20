@@ -52,7 +52,7 @@ module.exports = {
       filename: './index.html'
     }),
     new Dotenv(),
-    new FaviconsWebpackPlugin('/logo.png')
+    new FaviconsWebpackPlugin()
   ],
   resolve: {
     extensions: ['.mjs', '.js', '.jsx', '.css'],
