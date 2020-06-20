@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Chart from 'react-apexcharts';
-import { compounds } from '../../utils/utilitiesFuncs';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
+import { compounds } from '../../utils/utilitiesFuncs';
 
 const CompoundsDist = ({ size, data, legend, total }) => {
   const screens = useBreakpoint()
@@ -9,7 +9,7 @@ const CompoundsDist = ({ size, data, legend, total }) => {
   const options = { labels: ['שומן', 'חלבון', 'פחמימה'],
     animations: {
       enabled: true,
-      easing: 'easein',
+      easing: 'easeinout',
       speed: 800,
       animateGradually: {
         enabled: true,
@@ -39,12 +39,12 @@ const CompoundsDist = ({ size, data, legend, total }) => {
           }
         }
       }
-    }
+    },
   }
 
   return (
-    <div className="donut" style={{ paddingRight: '2em' }}>
-      <Chart options={options} series={compounds.map((c) => Number(data[c]))} type="donut" width={size === 'small' ? '250' : (size === 'medium' ? '200' : '90%')} />
+    <div className="donut" style={{ paddingRight: '5em' }}>
+      <Chart options={options} series={compounds.map((c) => Number(data[c]))} type="donut" width={size === 'small' ? 250 : (size === 'medium' ? 250 : 400)} />
     </div>
   )
 }

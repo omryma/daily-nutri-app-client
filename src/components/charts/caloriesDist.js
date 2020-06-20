@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Chart from 'react-apexcharts';
-import { Col } from 'antd';
-import { meals, mealsDict } from '../../utils/utilitiesFuncs';
-import CompoundsDist from './compoundsDist';
+import { Col, Empty } from 'antd';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import { useSelector } from 'react-redux';
+import { meals, mealsDict } from '../../utils/utilitiesFuncs';
+import CompoundsDist from './compoundsDist';
 import { menuSelector } from '../../slices/menu';
 
 const CaloriesDist = ({ data }) => {
@@ -37,7 +37,7 @@ const CaloriesDist = ({ data }) => {
       }
     },
     events: {
-      dataPointSelection: (e, t, selectedPoint) => setMeal(meals[selectedPoint.seriesIndex])
+      dataPointSelection: (e, t, selectedPoint) => { e.preventDefault(); setMeal(meals[selectedPoint.seriesIndex]) },
     },
   },
   colors: ['#E25A53', '#EFBC68', '#C2D7D0', '#5F9595'],
@@ -58,7 +58,7 @@ const CaloriesDist = ({ data }) => {
         {selectedMeal ? (
           <>
             <h4>התפלגות בארוחה</h4>
-            <CompoundsDist size="medium" legend={false} total={false} data={data[selectedMeal]} />
+            <CompoundsDist size="medium" legend={false} data={data[selectedMeal]} />
           </>
         ) : (
           <h4>לחץ על עמודה מהגרף</h4>

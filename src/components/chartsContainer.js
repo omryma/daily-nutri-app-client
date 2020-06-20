@@ -43,11 +43,9 @@ const ChartContainer = (props) => {
   }, [mealsData])
 
   const screens = useBreakpoint()
-  // useEffect(() => console.log(screens), [screens])
 
   return (
     <>
-      {/*{screens.lg && <vr />}*/}
       <Row justify="center">
         <Col><h1>סיכום יומי</h1></Col>
       </Row>
@@ -63,7 +61,7 @@ const ChartContainer = (props) => {
           <Row>
             <Col><h2>התפלגות רכיבים יומית</h2></Col>
           </Row>
-          <Row justify="center">
+          <Row justify={screens.xs ? 'start' : 'center'}>
             <Col span={20}><CompoundsDist size="big" total legend data={nutriSummary.total} /></Col>
           </Row>
           <Divider />

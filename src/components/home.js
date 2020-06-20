@@ -31,7 +31,7 @@ const Home = () => {
       <Spin spinning={isLoading}>
         <Row justify="center" align="top" style={{ direction: 'rtl' }}>
           <Col flex={1} order={2}><ChartContainer /></Col>
-          <Col flex={3} order={1}><MenuContainer /></Col>
+          <Col xs={24} md={24} lg={14} order={1}><MenuContainer /></Col>
         </Row>
       </Spin>
       <Modal
