@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Auth } from 'aws-amplify';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { Button, Divider, Form, Input, Row } from 'antd';
 import UserOutlined from '@ant-design/icons/lib/icons/UserOutlined';
@@ -164,6 +164,10 @@ const SignUp = (props) => {
               <h2>או</h2>
               <FacebookButton onLogin={() => handleSuccessfulSign()} />
             </Form>
+          </Row>
+          <Row>
+            <h3>כבר רשום? </h3>
+            <Link to="/#login">התחבר</Link>
           </Row>
         </>
       )}
