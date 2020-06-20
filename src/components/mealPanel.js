@@ -109,7 +109,7 @@ const MealPanel = (props) => {
               קלוריות ל-100 ג'
             </>
           </Col>
-          <Col span={3}><CompoundsDist total={false} legend small data={currentReqFood} /></Col>
+          <Col span={3}><CompoundsDist total={false} legend size="small" data={currentReqFood} /></Col>
         </Row>
         <Row justify="start">
           <Col span={2}><div>בחר כמות</div></Col>

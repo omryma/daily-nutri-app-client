@@ -64,7 +64,7 @@ const ChartContainer = (props) => {
             <Col><h2>התפלגות רכיבים יומית</h2></Col>
           </Row>
           <Row justify="center">
-            <Col span={20}><CompoundsDist total legend data={nutriSummary.total} /></Col>
+            <Col span={20}><CompoundsDist size="big" total legend data={nutriSummary.total} /></Col>
           </Row>
           <Divider />
           <Row>

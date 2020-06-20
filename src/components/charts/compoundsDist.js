@@ -3,7 +3,7 @@ import Chart from 'react-apexcharts';
 import { compounds } from '../../utils/utilitiesFuncs';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 
-const CompoundsDist = ({ small, data, legend, total }) => {
+const CompoundsDist = ({ size, data, legend, total }) => {
   const screens = useBreakpoint()
 
   const options = { labels: ['שומן', 'חלבון', 'פחמימה'],
@@ -44,7 +44,7 @@ const CompoundsDist = ({ small, data, legend, total }) => {
 
   return (
     <div className="donut" style={{ paddingRight: '2em' }}>
-      <Chart options={options} series={compounds.map((c) => Number(data[c]))} type="donut" width={small ? '250' : '90%'} />
+      <Chart options={options} series={compounds.map((c) => Number(data[c]))} type="donut" width={size === 'small' ? '250' : (size === 'medium' ? '200' : '90%')} />
     </div>
   )
 }

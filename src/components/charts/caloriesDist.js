@@ -58,7 +58,7 @@ const CaloriesDist = ({ data }) => {
         {selectedMeal ? (
           <>
             <h4>התפלגות בארוחה</h4>
-            <CompoundsDist legend={false} total={false} data={data[selectedMeal]} />
+            <CompoundsDist size="medium" legend={false} total={false} data={data[selectedMeal]} />
           </>
         ) : (
           <h4>לחץ על עמודה מהגרף</h4>
