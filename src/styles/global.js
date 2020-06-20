@@ -12,8 +12,6 @@ export const GlobalStyles = createGlobalStyle`
   }
   body {
     align-items: center;
-    // background: ${({ theme }) => theme.primaryBg};
-    // color: ${({ theme }) => theme.primaryLight};
     // display: flex;
     // min-height: 120vh;
     justify-content: center;
@@ -54,7 +52,6 @@ export const GlobalStyles = createGlobalStyle`
     display: block;
   }
   a {
-    // color: ${({ theme }) => theme.primaryHover};
     text-decoration: none;
   }
   button {

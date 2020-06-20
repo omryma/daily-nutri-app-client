@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import { API } from 'aws-amplify'
-import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker, InputNumber, Space, message, Spin } from 'antd';
+import { Form, Button, Col, Row, Input, InputNumber, Space, message, Spin } from 'antd';
 import MinusCircleOutlined from '@ant-design/icons/lib/icons/MinusCircleOutlined';
 import PlusOutlined from '@ant-design/icons/lib/icons/PlusOutlined';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
-import useFormFields from '../utils/useFormFields';
-import { compounds, error, gutter } from '../utils/utilitiesFuncs';
+import { duplicateError, error } from '../../utils/utilitiesFuncs';
 
 const CreateNewFood = (props) => {
   const [isUploading, setUploading] = useState(false)
@@ -30,10 +28,6 @@ const CreateNewFood = (props) => {
     return requestBody
   }
 
-  const duplicateError = () => {
-    message.error('הפריט הזה כבר קיים 😔');
-  };
-
   const handleCreate = async (value) => {
     setUploading(true)
     try {
@@ -54,7 +48,6 @@ const CreateNewFood = (props) => {
         onFinish={(val) => handleCreate(val)}
         form={form}
         validateMessages={{ required: 'שדה חובה' }}
-        // layout={screens.xs ? 'vertical' : 'horizontal'}
       >
         <Row justify={screens.xs ? 'start' : 'center'}>
           <Col span={5}>

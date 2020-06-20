@@ -2,10 +2,8 @@ import React, { useEffect } from 'react';
 import { Auth } from 'aws-amplify';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'antd';
-import { userDetailsSelector, userIsAuthenticating } from '../slices/userDetails';
-import onError from '../utils/onError';
-import LoaderButton from './loaderButton';
-import { loginError } from '../utils/utilitiesFuncs';
+import { userDetailsSelector, userIsAuthenticating } from '../../slices/userDetails';
+import { loginError, onError } from '../../utils/utilitiesFuncs';
 
 const waitForInit = () => new Promise((res, rej) => {
   const hasFbLoaded = () => {

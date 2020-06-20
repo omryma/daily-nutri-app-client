@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import moment from 'moment';
-import { API } from '@aws-amplify/api';
-import { meals } from '../utils/utilitiesFuncs';
+import { API } from 'aws-amplify';
+import { meals } from '../utils/texts';
 
 const getInitialState = (attr) => (localStorage.meals ? JSON.parse(localStorage.meals)[attr] : [])
 

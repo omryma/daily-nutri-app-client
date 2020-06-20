@@ -3,7 +3,7 @@ import Chart from 'react-apexcharts';
 import { Col, Empty } from 'antd';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import { useSelector } from 'react-redux';
-import { meals, mealsDict } from '../../utils/utilitiesFuncs';
+import { meals, mealsDict } from '../../utils/texts';
 import CompoundsDist from './compoundsDist';
 import { menuSelector } from '../../slices/menu';
 

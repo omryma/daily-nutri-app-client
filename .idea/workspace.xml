@@ -41,9 +41,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Omry\daily-nutri-client\src\components\content" />
+      <recent name="C:\Users\Omry\daily-nutri-client\src\components\navigation" />
+      <recent name="C:\Users\Omry\daily-nutri-client\src\components\layouts" />
       <recent name="C:\Users\Omry\nutri-app-client\src" />
       <recent name="C:\Users\Omry\nutri-app-client\public" />
-      <recent name="C:\Users\Omry\nutri-app-client" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Omry\daily-nutri-client" />
@@ -82,7 +84,7 @@
       <workItem from="1591798625568" duration="100195000" />
       <workItem from="1592289161675" duration="69696000" />
       <workItem from="1592512378040" duration="12506000" />
-      <workItem from="1592589795246" duration="27587000" />
+      <workItem from="1592589795246" duration="29515000" />
     </task>
     <servers />
   </component>
@@ -106,7 +108,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/headerContainer.js</url>
+          <url>file://$PROJECT_DIR$/src/components/navigation/header.js</url>
           <line>44</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>

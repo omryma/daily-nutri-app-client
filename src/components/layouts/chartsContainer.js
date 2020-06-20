@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Col, Divider, Empty, Row } from 'antd';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
-import { menuSelector } from '../slices/menu';
-import { compounds, meals } from '../utils/utilitiesFuncs';
-import CompoundsDist from './charts/compoundsDist';
-import CaloriesDist from './charts/caloriesDist';
+import { menuSelector } from '../../slices/menu';
+import { compounds, meals } from '../../utils/texts';
+import CompoundsDist from '../charts/compoundsDist';
+import CaloriesDist from '../charts/caloriesDist';
 
 const ChartContainer = (props) => {
   const mealsData = useSelector(menuSelector)

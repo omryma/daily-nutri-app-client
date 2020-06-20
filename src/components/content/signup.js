@@ -2,24 +2,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Auth } from 'aws-amplify';
 import { useHistory, Link } from 'react-router-dom';
 import React, { useState } from 'react';
-import { Button, Divider, Form, Input, Row } from 'antd';
+import { Button, Form, Input, Row } from 'antd';
 import UserOutlined from '@ant-design/icons/lib/icons/UserOutlined';
 import LockOutlined from '@ant-design/icons/lib/icons/LockOutlined';
-import {
-  userDetailsSelector,
-  userHasAuthenticated,
-  userIsAuthenticating
-} from '../slices/userDetails';
-import useFormFields from '../utils/useFormFields';
-import onError from '../utils/onError';
-import FacebookButton from './facebookButton';
-import LoaderButton from './loaderButton';
+import { userHasAuthenticated, userIsAuthenticating } from '../../slices/userDetails';
+import { onError } from '../../utils/utilitiesFuncs';
+import FacebookButton from '../navigation/facebookButton';
 
 const SignUp = (props) => {
   const dispatch = useDispatch()
   const history = useHistory()
 
-  const { isAuthenticated, isAuthenticating } = useSelector(userDetailsSelector)
   const [resendedCode, resendCode] = useState(false)
 
   const handleSignup = async (e) => {

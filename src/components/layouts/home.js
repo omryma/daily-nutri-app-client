@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { Auth } from 'aws-amplify';
-import { Button, Col, Divider, Modal, Row, Spin } from 'antd';
+import { Button, Col, Modal, Row, Spin } from 'antd';
 import MenuContainer from './menuContainer';
-import { fetchMenuDates, userDetailsSelector, userHasAuthenticated } from '../slices/userDetails';
+import { fetchMenuDates, userDetailsSelector } from '../../slices/userDetails';
 import ChartContainer from './chartsContainer';
-import { menuSelector } from '../slices/menu';
-import IntroCarousel from './introCarousel';
+import { menuSelector } from '../../slices/menu';
+import IntroCarousel from '../navigation/introCarousel';
 
 const Home = () => {
   const dispatch = useDispatch()

@@ -2,10 +2,10 @@ import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import { Menu, Drawer } from 'antd'
 import { useHistory } from 'react-router-dom'
-import CreateNewFood from './createNewFood';
-import { Auth } from '@aws-amplify/auth';
-import { userHasAuthenticated } from '../slices/userDetails';
+import { Auth } from 'aws-amplify';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
+import CreateNewFood from '../content/createNewFood';
+import { userHasAuthenticated } from '../../slices/userDetails';
 
 const NavBar = (props) => {
   const dispatch = useDispatch()

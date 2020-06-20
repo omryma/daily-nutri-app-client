@@ -5,14 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import UserOutlined from '@ant-design/icons/lib/icons/UserOutlined';
 import LockOutlined from '@ant-design/icons/lib/icons/LockOutlined';
 import { Button, Checkbox, Divider, Form, Input, Row } from 'antd';
-import { userDetailsSelector, userHasAuthenticated, userIsAuthenticating } from '../slices/userDetails';
-import onError from '../utils/onError';
-import useFormFields from '../utils/useFormFields';
-import FacebookButton from './facebookButton';
-import { loginError } from '../utils/utilitiesFuncs';
+import { userDetailsSelector, userHasAuthenticated, userIsAuthenticating } from '../../slices/userDetails';
+import FacebookButton from '../navigation/facebookButton';
+import { loginError } from '../../utils/utilitiesFuncs';
 
 const LoginForm = () => {
-  const [loginDetails, setLoginDetails] = useFormFields({ email: '', password: '' })
   const dispatch = useDispatch()
   const { isAuthenticating } = useSelector(userDetailsSelector)
   const history = useHistory()

@@ -6,25 +6,33 @@ import { API, Auth } from 'aws-amplify';
 import { Button, Col, Collapse, DatePicker, Divider, message, Spin } from 'antd';
 import Tabs from 'antd/lib/tabs';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
-import { fetchMenuDates, userDetailsSelector, userHasAuthenticated } from '../slices/userDetails';
-import MealPanel from './mealPanel';
-import { meals, mealsDict, error, localStorageEmpty } from '../utils/utilitiesFuncs';
-import { asyncActionFulfilled, asyncActionPending, changeDate, fetchMenuByDate, menuSelector } from '../slices/menu';
-import { StyledTabs, StyledTabsPane } from '../styles/styledTabs';
-import HeaderContainer from './headerContainer';
+import { fetchMenuDates, userDetailsSelector, userHasAuthenticated } from '../../slices/userDetails';
+import MealPanel from '../content/mealPanel';
+import { error, localStorageEmpty } from '../../utils/utilitiesFuncs';
+import { meals, mealsDict } from '../../utils/texts';
+import { asyncActionFulfilled, asyncActionPending, changeDate, fetchMenuByDate, menuSelector } from '../../slices/menu';
+import { StyledTabs, StyledTabsPane } from '../../styles/styledTabs';
+import Header from '../navigation/header';
 
 const { Panel } = Collapse
 const { TabPane } = Tabs
 
 const MenuContainer = () => {
   const { breakfast, lunch, dinner, inBetween, date, isLoading } = useSelector(menuSelector)
+  const { menuDates } = useSelector(userDetailsSelector)
+
   const dispatch = useDispatch()
+  const history = useHistory()
 
   useEffect(() => {
     if (breakfast.length || lunch.length || dinner.length || inBetween.length) {
       localStorage.setItem('meals', JSON.stringify({ breakfast, lunch, dinner, inBetween, date }))
     }
   }, [breakfast, lunch, dinner, inBetween])
+
+  useEffect(() => {
+    if (menuDates.includes(date) && localStorageEmpty()) dispatch(fetchMenuByDate(date))
+  }, [menuDates])
 
   const success = () => {
     message.success('התפריט נשמר בהצלחה 🥳');
@@ -47,24 +55,17 @@ const MenuContainer = () => {
     dispatch(fetchMenuDates())
   }
 
-  const history = useHistory()
-  const { menuDates } = useSelector(userDetailsSelector)
-
   const handleDateChange = (newDate) => {
     menuDates.includes(newDate)
       ? dispatch(fetchMenuByDate(newDate))
       : dispatch(changeDate({ date: newDate }))
   }
 
-  useEffect(() => {
-    if (menuDates.includes(date) && localStorageEmpty()) dispatch(fetchMenuByDate(date))
-  }, [menuDates])
-
   const screens = useBreakpoint()
 
   return (
     <>
-      <HeaderContainer />
+      <Header />
       <img alt="logo" src="https://res.cloudinary.com/dgmvbx86i/image/upload/v1592314657/%D7%9C%D7%95%D7%92%D7%95_%D7%A2%D7%95%D7%9E%D7%A8%D7%99_ft6jkj.png" />
       <h2>בחר תאריך</h2>
       <DatePicker

@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { Auth } from 'aws-amplify';
 import Layout from 'antd/lib/layout';
 import config from './config';
 import { userHasAuthenticated, userIsAuthenticating } from './slices/userDetails';
-import onError from './utils/onError';
-import NavBar from './components/navBar';
-import HeaderContainer from './components/headerContainer';
+import { onError } from './utils/utilitiesFuncs';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content } = Layout;
 
 const App = (props) => {
   const { children } = props
   const dispatch = useDispatch()
-  const history = useHistory()
 
   const loadFacebookSDK = () => {
     window.fbAsyncInit = function () {
@@ -58,11 +54,8 @@ const App = (props) => {
     onLoad()
   }, [])
 
-  const [siderCollapsed, setCollapse] = useState(false)
-
   return (
     <Layout style={{ direction: 'rtl' }}>
-      {/*<Header style={{ minHeight: '3em', padding: '0px' }}><HeaderContainer /></Header>*/}
       <Content style={{ minHeight: '90vh' }}>{children}</Content>
     </Layout>
   )

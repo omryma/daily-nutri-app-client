@@ -1,19 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Collapse from 'antd/lib/collapse';
-import { Button, Col, Empty, InputNumber, Row, Select } from 'antd';
+import { Button, Col, InputNumber, Row, Select } from 'antd';
 import { API } from 'aws-amplify';
 import { CheckCircleTwoTone } from '@ant-design/icons';
 import DeleteTwoTone from '@ant-design/icons/lib/icons/DeleteTwoTone';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
-import DeleteOutlined from '@ant-design/icons/lib/icons/DeleteOutlined';
 import CountUp from 'react-countup';
-import { addToMenu, menuSelector, removeFromMenu } from '../slices/menu';
-import onError from '../utils/onError';
-import CompoundsDist from './charts/compoundsDist';
-import { compounds, gutter } from '../utils/utilitiesFuncs';
+import { addToMenu, menuSelector, removeFromMenu } from '../../slices/menu';
+import CompoundsDist from '../charts/compoundsDist';
+import { gutter, onError } from '../../utils/utilitiesFuncs';
 
-const { Panel } = Collapse
 const { Option } = Select
 
 const MealPanel = (props) => {
@@ -29,6 +26,8 @@ const MealPanel = (props) => {
 
   const searchTimer = useRef();
   const queryRef = useRef(searchQuery)
+
+  const dispatch = useDispatch()
 
   const checkIfDuplicate = (name) => selectedFoods.find((food) => food.foodName === name)
 
@@ -54,9 +53,6 @@ const MealPanel = (props) => {
     setResults([])
     setQuery('')
   }
-  const dispatch = useDispatch()
-
-  // const sumCalories = selectedFoods.reduce(((acc, food) => acc + (food.calories * food.selectedAmount)), 0)
 
   const handleRemoveFromMenu = ({ value }) => {
     dispatch(removeFromMenu({ meal, removedValue: value }))
@@ -77,7 +73,6 @@ const MealPanel = (props) => {
   const screens = useBreakpoint()
 
   return (
-
     <>
       <Row align="middle" justify="start">
         <Col span={2}><div>חפש פריט</div></Col>
@@ -136,22 +131,22 @@ const MealPanel = (props) => {
       <br />
       <Row><Col><h2>פריטי הארוחה:</h2></Col></Row>
       <Row style={{ width: screens.xs ? '25em' : '58em' }}>
-          { selectedFoods.length ? (
-            <Select
-              bordered={false}
-              mode="multiple"
-              labelInValue
-              style={{ paddingBottom: '5px' }}
-              value={selectedFoods.map((food) => ({ value: food.foodName, label: `${food.foodName} - ${food.selectedAmount} גרם` }))}
-              onDeselect={(val) => handleRemoveFromMenu(val)}
-              notFoundContent={null}
-            />
-          ) : (
-            <Col>
-              לא נמצאו פריטים
-              <img alt="empty" src="https://img.icons8.com/clouds/100/000000/tableware.png" />
-            </Col>
-          )}
+        { selectedFoods.length ? (
+          <Select
+            bordered={false}
+            mode="multiple"
+            labelInValue
+            style={{ paddingBottom: '5px' }}
+            value={selectedFoods.map((food) => ({ value: food.foodName, label: `${food.foodName} - ${food.selectedAmount} גרם` }))}
+            onDeselect={(val) => handleRemoveFromMenu(val)}
+            notFoundContent={null}
+          />
+        ) : (
+          <Col>
+            לא נמצאו פריטים
+            <img alt="empty" src="https://img.icons8.com/clouds/100/000000/tableware.png" />
+          </Col>
+        )}
       </Row>
     </>
   )

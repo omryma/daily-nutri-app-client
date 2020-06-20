@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Chart from 'react-apexcharts';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
-import { compounds } from '../../utils/utilitiesFuncs';
+import { compounds } from '../../utils/texts';
 
 const CompoundsDist = ({ size, data, legend, total }) => {
   const screens = useBreakpoint()
@@ -52,7 +52,6 @@ const CompoundsDist = ({ size, data, legend, total }) => {
       if (size === 'medium') return 300
       return 450
     }
-
   }
 
   return (
