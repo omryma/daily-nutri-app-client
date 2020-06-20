@@ -12,7 +12,7 @@ import FacebookButton from '../navigation/facebookButton';
 const SignUp = (props) => {
   const dispatch = useDispatch()
   const history = useHistory()
-
+  const [secondPhase, setPhase] = useState(false)
   const [resendedCode, resendCode] = useState(false)
 
   const handleSignup = async (e) => {
@@ -23,6 +23,7 @@ const SignUp = (props) => {
         username: email,
         password
       })
+      setPhase(true)
       localStorage.userHasSignedUp = JSON.stringify({ email, password })
     } catch (error) {
       if (error.message !== 'An account with the given email already exists.') onError(error)
@@ -65,7 +66,7 @@ const SignUp = (props) => {
       <Row justify="center" align="middle">
         <img alt="logo" src="https://res.cloudinary.com/dgmvbx86i/image/upload/v1592314657/%D7%9C%D7%95%D7%92%D7%95_%D7%A2%D7%95%D7%9E%D7%A8%D7%99_ft6jkj.png" />
       </Row>
-      { localStorage.userHasSignedUp ? (
+      { secondPhase ? (
         <>
           <h2>הזן קוד אימות שנשלח אליך במייל</h2>
           <Row justify="center" align="middle">
