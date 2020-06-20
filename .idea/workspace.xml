@@ -23,7 +23,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/favicons" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -46,8 +46,8 @@
       <recent name="C:\Users\Omry\nutri-app-client" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Omry\daily-nutri-client\favicons" />
       <recent name="C:\Users\Omry\daily-nutri-client" />
+      <recent name="C:\Users\Omry\daily-nutri-client\favicons" />
       <recent name="C:\Users\Omry\nutri-app-client" />
     </key>
   </component>
@@ -82,7 +82,7 @@
       <workItem from="1591798625568" duration="100195000" />
       <workItem from="1592289161675" duration="69696000" />
       <workItem from="1592512378040" duration="12506000" />
-      <workItem from="1592589795246" duration="23187000" />
+      <workItem from="1592589795246" duration="24564000" />
     </task>
     <servers />
   </component>

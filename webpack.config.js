@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
   module: {
@@ -28,6 +29,14 @@ module.exports = {
         ]
       },
       {
+        test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+        use: [
+          {
+            loader: 'file-loader?name=[name].[ext]'
+          }
+        ]
+      },
+      {
         test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
         use: [
           {
@@ -42,8 +51,8 @@ module.exports = {
       template: './src/index.html',
       filename: './index.html'
     }),
-    new Dotenv()
-
+    new Dotenv(),
+    new FaviconsWebpackPlugin('/logo.png')
   ],
   resolve: {
     extensions: ['.mjs', '.js', '.jsx', '.css'],

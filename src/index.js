@@ -17,7 +17,6 @@ import SignUp from './components/signup';
 import CreateNewFood from './components/createNewFood';
 import 'antd/dist/antd.css';
 
-
 const store = configureStore({ reducer: rootReducer })
 
 Amplify.configure({
