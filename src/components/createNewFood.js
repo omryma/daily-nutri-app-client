@@ -15,7 +15,7 @@ const CreateNewFood = (props) => {
     message.success('הפריט נשמר בהצלחה 🥳');
   };
 
-  const fields = [{ label: 'שומן ל-100 גרם', name: 'fats' }, { label: 'חלבון ל-100 גרם', name: 'proteins' }, { label: 'פחמימה ל-100 גרם', name: 'carbs' }, { label: 'קלוריות ל-100 גרם', name: 'calories' }]
+  const fields = [{ label: 'שומן ל-100 ג', name: 'fats' }, { label: 'חלבון ל-100 ג', name: 'proteins' }, { label: 'פחמימה ל-100 ג', name: 'carbs' }, { label: 'קלוריות ל-100 ג', name: 'calories' }]
   const screens = useBreakpoint()
   const [form] = Form.useForm()
 
@@ -57,7 +57,7 @@ const CreateNewFood = (props) => {
         // layout={screens.xs ? 'vertical' : 'horizontal'}
       >
         <Row justify={screens.xs ? 'start' : 'center'}>
-          <Col flex={1}>
+          <Col span={5}>
             <Form.Item
               name="foodName"
               label="שם הפריט"
@@ -71,7 +71,7 @@ const CreateNewFood = (props) => {
         </Row>
         <Row>
           {fields.map(({ label, name }) => (
-            <Col flex={1} key={name}>
+            <Col flex={0.25} key={name}>
               <Form.Item
                 name={name}
                 label={label}

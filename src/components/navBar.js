@@ -46,7 +46,7 @@ const NavBar = (props) => {
 
       <Drawer
         title="הוסף פריט חדש"
-        width={screens.xs ? '85%' : '70%'}
+        width={screens.xs ? '85%' : '75%'}
         onClose={() => setDrawer(false)}
         visible={drawerOpen}
         style={{ direction: 'rtl' }}
