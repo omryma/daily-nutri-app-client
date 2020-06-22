@@ -3,7 +3,7 @@ import { Auth } from 'aws-amplify';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'antd';
 import { userDetailsSelector, userIsAuthenticating } from '../../slices/userDetails';
-import { loginError, onError } from '../../utils/utilitiesFuncs';
+import { error, loginError, onError } from '../../utils/utilitiesFuncs';
 
 const waitForInit = () => new Promise((res, rej) => {
   const hasFbLoaded = () => {
@@ -56,7 +56,7 @@ const FacebookButton = (props) => {
     if (response.status === 'connected') {
       handleResponse(response.authResponse);
     } else {
-      onError(response);
+      error()
     }
   };
 

@@ -6,7 +6,7 @@ import { Button, Form, Input, Row } from 'antd';
 import UserOutlined from '@ant-design/icons/lib/icons/UserOutlined';
 import LockOutlined from '@ant-design/icons/lib/icons/LockOutlined';
 import { userHasAuthenticated, userIsAuthenticating } from '../../slices/userDetails';
-import { duplicateUser, onError } from '../../utils/utilitiesFuncs';
+import { duplicateUser, error, onError } from '../../utils/utilitiesFuncs';
 import FacebookButton from '../navigation/facebookButton';
 
 const SignUp = (props) => {
@@ -46,8 +46,8 @@ const SignUp = (props) => {
       await Auth.confirmSignUp(email, e.confirmationCode);
       await Auth.signIn(email, password);
       handleSuccessfulSign()
-    } catch (error) {
-      onError(error)
+    } catch (err) {
+      error()
     }
     dispatch(userIsAuthenticating(false))
   }
@@ -57,8 +57,8 @@ const SignUp = (props) => {
       const { email } = JSON.parse(localStorage.userHasSignedUp)
       await Auth.resendSignUp(email);
       resendCode(true)
-    } catch (error) {
-      onError(error)
+    } catch (err) {
+      error()
     }
   }
 

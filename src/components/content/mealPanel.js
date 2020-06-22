@@ -9,7 +9,7 @@ import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import CountUp from 'react-countup';
 import { addToMenu, menuSelector, removeFromMenu } from '../../slices/menu';
 import CompoundsDist from '../charts/compoundsDist';
-import { gutter, onError } from '../../utils/utilitiesFuncs';
+import { error, gutter, onError } from '../../utils/utilitiesFuncs';
 
 const { Option } = Select
 
@@ -42,7 +42,7 @@ const MealPanel = (props) => {
           const options = await API.get('nutri-app', `/foods/${encodeURIComponent(query)}`)
           setResults(options)
         } catch (e) {
-          onError(e)
+          error()
         }
         setLoading(false)
       }, 500)
