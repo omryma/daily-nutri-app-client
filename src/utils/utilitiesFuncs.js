@@ -8,6 +8,10 @@ export const duplicateError = () => {
   message.error('הפריט הזה כבר קיים 😔');
 };
 
+export const duplicateUser = () => {
+  message.error('משתמש זה כבר קיים 😔');
+};
+
 export const loginError = () => {
   message.error('סליחה, משהו השתבש 😔 נא לבדוק שהמשתמש הזה אכן קיים');
 }

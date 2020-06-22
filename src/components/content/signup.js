@@ -6,7 +6,7 @@ import { Button, Form, Input, Row } from 'antd';
 import UserOutlined from '@ant-design/icons/lib/icons/UserOutlined';
 import LockOutlined from '@ant-design/icons/lib/icons/LockOutlined';
 import { userHasAuthenticated, userIsAuthenticating } from '../../slices/userDetails';
-import { onError } from '../../utils/utilitiesFuncs';
+import { duplicateUser, onError } from '../../utils/utilitiesFuncs';
 import FacebookButton from '../navigation/facebookButton';
 
 const SignUp = (props) => {
@@ -18,15 +18,17 @@ const SignUp = (props) => {
   const handleSignup = async (e) => {
     dispatch(userIsAuthenticating(true))
     try {
-      const { email, password } = e
+      let { email, password } = e
+      email = email.trim()
       await Auth.signUp({
         username: email,
         password
       })
       setPhase(true)
       localStorage.userHasSignedUp = JSON.stringify({ email, password })
-    } catch (error) {
-      if (error.message !== 'An account with the given email already exists.') onError(error)
+    } catch (err) {
+      if (err.message !== 'An account with the given email already exists.') error()
+      else duplicateUser()
     }
     dispatch(userIsAuthenticating(false))
   }
